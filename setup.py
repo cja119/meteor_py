@@ -13,7 +13,7 @@ setup(
         "numpy==1.26.4",
         "pandas==2.2.2",
         "earthaccess==0.11.0",
-        "xarray==2023.6.0",
+        "xarray>=2023.6.0",
         "cartopy==0.23.0",
         "shapely==2.0.6",
         "pysolar==0.11",
