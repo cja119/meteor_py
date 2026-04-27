@@ -8,8 +8,18 @@ class GetData:
     def __init__(self, keys):
         targ = Path(__file__).parent / "data"
         self._data = []
+
+
+        if isinstance(keys, (str, Path)):
+            keys = [keys]
+
+        csvs_files = []
         for file_name in keys:
-            csvs_files = glob(str(targ / file_name))
+            if isinstance(file_name, (list, tuple)):
+                for sub in file_name:
+                    csvs_files.extend(glob(str(targ / sub)))
+            else:
+                csvs_files.extend(glob(str(targ / file_name)))
 
         for file_name in csvs_files:
             with open(file_name) as f:
